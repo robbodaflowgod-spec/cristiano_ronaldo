@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribute — Cristiano Ronaldo</title>
+  <style>
+    :root {
+      --bg-dark: #07111f;
+      --bg-card: #0e1e36;
+      --bg-elevated: #142847;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --text-main: #e6eef8;
+      --text-muted: #9fb3c8;
+      --border: rgba(148, 184, 218, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #09182c 0%, #102647 100%);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Hero Banner */
+    .hero {
+      max-width: 1100px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 2.5rem 2rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .cr7-badge {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #17325c, #0b192e);
+      border: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 2.1rem;
+      letter-spacing: 1px;
+      color: var(--accent);
+    }
+
+    /* Main Layout (Article + Aside) */
+    .page-grid {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    main article {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 2.2rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.25rem 0 0.6rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    ul.styled-list,
+    ol.styled-list {
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    ul.styled-list li,
+    ol.styled-list li {
+      margin-bottom: 0.55rem;
+      color: var(--text-muted);
+    }
+
+    ul.styled-list strong {
+      color: var(--text-main);
+    }
+
+    blockquote {
+      margin: 1.25rem 0;
+      padding: 1rem 1.25rem;
+      background-color: var(--bg-elevated);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Milestones Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--bg-elevated);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--text-muted);
+    }
+
+    /* Sidebar Aside */
+    aside {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    aside h2 {
+      font-size: 1.2rem;
+    }
+
+    .fact-item {
+      margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .fact-label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .fact-value {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #050c17;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">CR<span>7</span> Tribute</div>
+      <nav aria-label="Primary Navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#qualities">Mindset</a></li>
+          <li><a href="#milestones">Career Timeline</a></li>
+          <li><a href="#legacy">Legacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Introduction">
+    <div class="cr7-badge" aria-hidden="true">CR7</div>
+    <span class="hero-tag">Football Icon &amp; Relentless Competitor</span>
+    <h1>Cristiano Ronaldo</h1>
+    <p class="subtitle">
+      From Funchal, Madeira to the pinnacle of world football—a tribute to unmatched discipline,
+      longevity, and obsession with self-improvement.
+    </p>
+  </section>
+
+  <div class="page-grid">
+    <main>
+      <article>
+        <section id="about">
+          <h2>Why I Admire Him</h2>
+          <p>
+            Cristiano Ronaldo turned raw teenage flair into the most ruthless goalscoring machine
+            in football history. Growing up in Madeira and leaving home young to chase his dream at
+            Sporting CP, he built his career on outworking everyone around him rather than relying
+            on natural talent alone.
+          </p>
+          <p>
+            What stands out most is his ability to reinvent himself across eras and leagues—from a
+            touchline winger dazzling Old Trafford, to an unstoppable record-breaker in Madrid, to
+            a clinical focal point leading Portugal on the international stage.
+          </p>
+          <blockquote>
+            "Talent without working hard is nothing."
+            <cite>— Cristiano Ronaldo</cite>
+          </blockquote>
+        </section>
+
+        <section id="qualities">
+          <h2>Core Qualities &amp; Habits</h2>
+          <ul class="styled-list">
+            <li><strong>Relentless Work Ethic:</strong> First to arrive at training and last to leave, treating recovery, nutrition, and sleep as non-negotiable parts of performance.</li>
+            <li><strong>Big-Stage Composure:</strong> Thrives under maximum pressure—delivering iconic UEFA Champions League knockout performances and decisive international goals.</li>
+            <li><strong>Continuous Evolution:</strong> Adapted his playing style over two decades to stay lethal at the highest level well into his late thirties and forties.</li>
+          </ul>
+
+          <h3>Lessons That Carry Beyond Football</h3>
+          <ol class="styled-list">
+            <li>Treat discipline as a daily system rather than waiting for motivation.</li>
+            <li>Adapt your approach when your environment or strengths evolve.</li>
+            <li>Set standards so high that yesterday's best becomes today's baseline.</li>
+          </ol>
+        </section>
+
+        <section id="milestones">
+          <h2>Career Milestones</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Era</th>
+                  <th scope="col">Club / Stage</th>
+                  <th scope="col">Defining Achievement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2003–2009</td>
+                  <td>Manchester United</td>
+                  <td>Won 3 Premier League titles, his first UEFA Champions League, and his first Ballon d'Or (2008).</td>
+                </tr>
+                <tr>
+                  <td>2009–2018</td>
+                  <td>Real Madrid</td>
+                  <td>Became the club's all-time top scorer with 450 goals in 438 appearances and won 4 Champions League titles.</td>
+                </tr>
+                <tr>
+                  <td>2016–Present</td>
+                  <td>Portugal National Team</td>
+                  <td>Captained Portugal to Euro 2016 and the 2019 UEFA Nations League, becoming men's football's all-time leading international scorer.</td>
+                </tr>
+                <tr>
+                  <td>2018–Present</td>
+                  <td>Juventus, Man Utd Return &amp; Al-Nassr</td>
+                  <td>Captured Serie A titles, broke the 900-career-goal barrier, and extended elite scoring longevity across continents.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="legacy">
+          <h2>Lasting Impact</h2>
+          <p>
+            With five Ballon d'Or awards, five UEFA Champions League trophies, and the all-time
+            scoring records in both the Champions League and men's international football, Cristiano
+            Ronaldo redefined what longevity and professionalism look like in modern sport.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <aside aria-label="Quick Facts">
+      <h2>Quick Facts</h2>
+      <div class="fact-item">
+        <span class="fact-label">Full Name</span>
+        <span class="fact-value">Cristiano Ronaldo dos Santos Aveiro</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Born</span>
+        <span class="fact-value">February 5, 1985 — Funchal, Madeira, Portugal</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Major Honors</span>
+        <span class="fact-value">5× Ballon d'Or, 5× UEFA Champions League, Euro 2016</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Signature Number</span>
+        <span class="fact-value">#7 (CR7)</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Career Milestone</span>
+        <span class="fact-value">900+ official senior career goals</span>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>HTML5 &amp; CSS Tribute Page • Dedicated to Cristiano Ronaldo (CR7)</p>
+  </footer>
+</body>
+</html>
